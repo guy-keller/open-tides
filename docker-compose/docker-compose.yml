@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+
+  open-tides:
+    image: open-tides/open-tides:latest
+    container_name: open-tides
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    depends_on:
+      - open-tides
+    links:
+      - open-tides
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /tmp/nginx_error.log:/etc/nginx/error_log.log
+      - /tmp/cache/:/etc/nginx/cache
+
+networks:
+  default:
+    name: open-tides-network
