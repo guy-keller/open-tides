@@ -11,6 +11,11 @@ Install the following tools / framework:
 * Maven 3
 * Docker
 
+Install the https://github.com/guikeller/tides dependency into your maven repo.<br>
+Download the jar from: https://github.com/guikeller/tides/releases/tag/0.0.3
+```bash
+mvn install:install-file -Dfile=jtides-0.0.3.jar -DgroupId=com.github -DartifactId=jtides -Dversion=0.0.3 -Dpackaging=jar
+```
 
 ### Build 
 Follow the steps below:
@@ -34,6 +39,7 @@ docker-compose up -d
 ```
 
 ### Endpoints
+Date format: YYYY-MM-DD
 ```bash
 curl http://localhost:8080/tideStations
 curl http://localhost:8080/tideStationsTree
