@@ -24,7 +24,7 @@ public class TidesRest {
      * All tide stations available
      * @return List<String>
      */
-    @GetMapping("/tideStations")
+    @GetMapping("/api/open-tides/tideStations")
     public List<String> getTideStations() {
         return TIDE_API.getStations();
     }
@@ -34,7 +34,7 @@ public class TidesRest {
      * See: https://github.com/guikeller/tides
      * @return Map<String, StationTreeNode>
      */
-    @GetMapping("/tideStationsTree")
+    @GetMapping("/api/open-tides/tideStationsTree")
     public Map<String, StationTreeNode> getTideStationsTree() {
         return TIDE_API.getStationsTree();
     }
@@ -45,7 +45,7 @@ public class TidesRest {
      * @param tideDate format is 'YYYY-MM-DD'
      * @return List<TimedValue>
      */
-    @GetMapping("/hourlyTides")
+    @GetMapping("/api/open-tides/hourlyTides")
     public List<TimedValue> getHourlyTides(@RequestParam("tideStation") String tideStation, @RequestParam("tideDate") String tideDate) {
         try {
             LocalDate localDate = LocalDate.parse(tideDate, DateTimeFormatter.ISO_DATE);
@@ -61,7 +61,7 @@ public class TidesRest {
      * @param tideDate format is 'YYYY-MM-DD'
      * @return List<TimedValue>
      */
-    @GetMapping("/highLowTides")
+    @GetMapping("/api/open-tides/highLowTides")
     public List<TimedValue> getTideHeightAtTimeAndPlace(@RequestParam("tideStation") String tideStation, @RequestParam("tideDate") String tideDate) {
         try {
             LocalDate localDate = LocalDate.parse(tideDate, DateTimeFormatter.ISO_DATE);

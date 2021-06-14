@@ -41,10 +41,10 @@ docker-compose up -d
 ### Endpoints
 Date format: YYYY-MM-DD
 ```bash
-curl http://localhost:8080/tideStations
-curl http://localhost:8080/tideStationsTree
-curl http://localhost:8080/highLowTides?tideStation=Bolama,%20Guinea-Bissau&tideDate=2021-06-03
-curl http://localhost:8080/hourlyTides?tideStation=Bolama,%20Guinea-Bissau&tideDate=2021-06-03
+curl http://localhost:8080/api/open-tides/tideStations
+curl http://localhost:8080/api/open-tides/tideStationsTree
+curl http://localhost:8080/api/open-tides/highLowTides?tideStation=Bolama,%20Guinea-Bissau&tideDate=2021-06-03
+curl http://localhost:8080/api/open-tides/hourlyTides?tideStation=Bolama,%20Guinea-Bissau&tideDate=2021-06-03
 ```
 
 ### License
